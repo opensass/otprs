@@ -1,0 +1,49 @@
+[package]
+name = "otprs"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+description = "🔐 A highly customizable OTP input component for WASM frameworks like Yew, Dioxus, and Leptos."
+license = "MIT"
+keywords = ["otp", "yew", "dioxus", "leptos", "otprs"]
+categories = ["web-programming", "authentication"]
+repository = "https://github.com/opensass/otprs"
+documentation = "https://docs.rs/otprs"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+exclude = ["/assets", "/examples"]
+
+[dependencies]
+input-rs = { version = "0.3.0", optional = true }
+yew = { version = "0.23.0", default-features = false, optional = true }
+dioxus = { version = "0.7.10", optional = true }
+leptos = { version = "0.8.20", optional = true }
+dioxus-logger = { version = "0.7.10", optional = true }
+gloo-timers = { version = "0.3.0", features = ["futures"], optional = true }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "FocusEvent", "KeyboardEvent", "Window", "Document", "Element", "HtmlElement"], optional = true }
+wasm-bindgen = { version = "0.2", optional = true }
+totp-rs = { version = "^6.0", default-features = false, features = ["alloc"] }
+js-sys = { version = "0.3", optional = true }
+
+[features]
+yew = ["dep:yew", "input-rs/yew", "dep:web-sys", "dep:wasm-bindgen", "dep:js-sys"]
+dio = ["dioxus", "dioxus-logger", "input-rs/dio", "dep:web-sys", "dep:wasm-bindgen", "dep:js-sys"]
+lep = ["leptos", "input-rs/lep", "gloo-timers", "dep:wasm-bindgen", "dep:js-sys"]
+
+[profile.release]
+opt-level = "z"
+debug = false
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+incremental = false
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dev-dependencies]
+bump2version = "0.2.2"
