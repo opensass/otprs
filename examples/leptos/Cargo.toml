@@ -1,0 +1,23 @@
+[package]
+name = "otprs-leptos-example"
+version = "0.1.0"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+edition = "2024"
+
+[dependencies]
+console_error_panic_hook = "0.1.7"
+otprs = { path = "../../", features = ["lep"] }
+leptos = { version = "0.8.21", features = ["csr"] }
+wasm-logger = "0.2.0"
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"

@@ -1,0 +1,28 @@
+[package]
+name = "otprs-dioxus-example"
+version = "0.1.0"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+edition = "2024"
+
+[dependencies]
+otprs = { path = "../../", features = ["dio"] }
+dioxus = { version = "0.7.10", features = ["web"] }
+dioxus-logger = "0.7.10"
+js-sys = "0.3"
+
+
+[profile.release]
+codegen-units = 3
+opt-level = "z"
+lto = "thin"
+strip = "symbols"
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"

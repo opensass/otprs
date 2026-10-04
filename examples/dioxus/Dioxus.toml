@@ -1,0 +1,38 @@
+[application]
+
+# App (Project) Name
+name = "otprs"
+
+# Dioxus App Default Platform
+default_platform = "web"
+
+# resource (assets) file folder
+asset_dir = "assets"
+
+[web.app]
+
+# HTML title tag content
+title = "OTP RS Dioxus Example"
+
+[web.watcher]
+
+# when watcher trigger, regenerate the `index.html`
+reload_html = true
+
+# which files or dirs will be watcher monitoring
+watch_path = ["src", "assets"]
+
+# include `assets` in web platform
+[web.resource]
+
+# CSS style file
+style = []
+
+# Javascript code file
+script = []
+
+[web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
+script = []
