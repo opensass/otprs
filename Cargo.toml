@@ -18,7 +18,7 @@ yew = { version = "0.23.0", default-features = false, optional = true }
 dioxus = { version = "0.7.10", optional = true }
 leptos = { version = "0.8.20", optional = true }
 dioxus-logger = { version = "0.7.10", optional = true }
-gloo-timers = { version = "0.3.0", features = ["futures"], optional = true }
+gloo-timers = { version = "0.4.0", features = ["futures"], optional = true }
 web-sys = { version = "0.3", features = ["HtmlInputElement", "FocusEvent", "KeyboardEvent", "Window", "Document", "Element", "HtmlElement"], optional = true }
 wasm-bindgen = { version = "0.2", optional = true }
 totp-rs = { version = "^6.0", default-features = false, features = ["alloc"] }
